@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title data-i18n="title.home">StudioCafe | Coffee Meets Creativity</title>
+    <meta name="description" data-i18n-content="meta.home" content="StudioCafe is a creative coffee shop featuring handcrafted drinks and a photo-ready studio corner.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.jpg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.jpg" alt="StudioCafe Logo">
+            </a>
+            <a href="index.html"><h2>StudioCafe</h2></a>
+        </div>
+
+        <ul>
+            <li><a href="index.html" class="active" data-i18n="nav.home">Home</a></li>
+            <li><a href="menu.html" data-i18n="nav.menu">Menu</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+            <li class="lang-switch">
+                <button type="button" class="lang-btn" data-lang="en">EN</button>
+                <button type="button" class="lang-btn" data-lang="mk">МК</button>
+                <button type="button" class="lang-btn" data-lang="sq">SQ</button>
+                <button type="button" class="lang-btn" data-lang="tr">TR</button>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h1 data-i18n="hero.title">Where Coffee Meets Creativity</h1>
+    <p data-i18n="hero.text">A warm café designed for sipping, creating, and capturing moments.</p>
+    <div class="hero-buttons">
+        <a href="menu.html" class="btn" data-i18n="hero.btn">View Menu</a>
+        <a href="contact.html#visit" class="btn secondary" data-i18n="hero.btn2">Our Location</a>
+    </div>
+</section>
+
+<section id="inside">
+    <h2 data-i18n="gallery.title">Inside StudioCafe</h2>
+    <div class="feature-cards">
+        <a href="#ambient-popup" class="feature-card" data-popup="ambient-popup">
+            <img src="images/ambient.jpg" alt="Cafe seating" data-i18n-alt="gallery.1.alt">
+            <h3 data-i18n="gallery.1">The Ambient</h3>
+        </a>
+        <a href="#events-popup" class="feature-card" data-popup="events-popup">
+            <img src="images/party2.jpeg" alt="Guests at an event at StudioCafe" data-i18n-alt="gallery.events.alt">
+            <h3 data-i18n="gallery.events">Live Music &amp; Events</h3>
+        </a>
+        <a href="#studio-popup" class="feature-card" data-popup="studio-popup">
+            <img src="images/studio-corner.jpg" alt="Studio Corner" data-i18n-alt="gallery.3.alt">
+            <h3 data-i18n="gallery.3">Our Studio Corner</h3>
+        </a>
+    </div>
+</section>
+
+<section id="about-text">
+    <div class="story">
+        <img src="images/about.jpg" alt="About Us" data-i18n-alt="nav.about">
+        <div class="story-text">
+            <h2 data-i18n="nav.about">About Us</h2>
+            <p data-i18n="about.text">StudioCafe began with a simple wish: to create a space where comfort meets creativity and self-expression.</p>
+            <a href="about.html" class="story-more" data-i18n="about.more">Read more →</a>
+        </div>
+    </div>
+</section>
+
+<div id="cookie-banner" class="cookie-banner">
+    <p data-i18n-html="cookie.text">
+        This website uses cookies to improve your experience.
+        You can accept or decline optional <a href="cookies.html">cookies.</a>
+    </p>
+
+    <div class="cookie-buttons">
+        <button id="accept-cookies" data-i18n="cookie.accept">Accept</button>
+        <button id="decline-cookies" data-i18n="cookie.decline">Decline</button>
+    </div>
+</div>
+
+<dialog class="popup" id="ambient-popup" aria-labelledby="ambient-popup-title">
+
+    <form method="dialog">
+        <button class="popup-close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only" data-i18n="popup.close">Close</span>
+        </button>
+    </form>
+    <div class="popup-inner">
+        <div class="popup-text">
+            <h2 id="ambient-popup-title" data-i18n="gallery.1">The Ambient</h2>
+            <p data-i18n="popup.ambient.text">Soft light, warm tones and corners made for lingering. Every seat at StudioCafe is picture-perfect, ideal for your feed.</p>
+        </div>
+
+        <div class="slideshow">
+            <div class="slides">
+                <img src="images/ambient.jpg" loading="lazy" alt="The Ambient at StudioCafe, photo 1" data-i18n-alt="popup.ambient.alt1">
+                <img src="images/ambient-2.jpeg" loading="lazy" alt="The Ambient at StudioCafe, photo 2" data-i18n-alt="popup.ambient.alt2">
+                <img src="images/ambient-3.jpeg" loading="lazy" alt="The Ambient at StudioCafe, photo 3" data-i18n-alt="popup.ambient.alt3">
+                <img src="images/ambient-4.jpeg" loading="lazy" alt="The Ambient at StudioCafe, photo 4" data-i18n-alt="popup.ambient.alt4">
+            </div>
+            <button type="button" class="slide-btn slide-prev" data-slide="-1">
+                <span aria-hidden="true">&lsaquo;</span>
+                <span class="sr-only" data-i18n="popup.prev">Previous photo</span>
+            </button>
+            <button type="button" class="slide-btn slide-next" data-slide="1">
+                <span aria-hidden="true">&rsaquo;</span>
+                <span class="sr-only" data-i18n="popup.next">Next photo</span>
+            </button>
+        </div>
+    </div>
+</dialog>
+
+<dialog class="popup" id="studio-popup" aria-labelledby="studio-popup-title">
+    <form method="dialog">
+        <button class="popup-close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only" data-i18n="popup.close">Close</span>
+        </button>
+    </form>
+    <div class="popup-inner">
+        <div class="popup-text">
+            <h2 id="studio-popup-title" data-i18n="gallery.3">Our Studio Corner</h2>
+            <p data-i18n="popup.studio.text">The Studio Corner is the heart of StudioCafe: a beautifully styled space with perfect lighting and elegant backdrops, available to reserve for photo sessions.</p>
+            <p data-i18n="popup.studio.text2">Reservations are made in person, so visit us and speak with our baristas.</p>
+        </div>
+        <div class="slideshow">
+            <div class="slides">
+                <img src="images/studio-corner.jpg" loading="lazy" alt="The Studio Corner at StudioCafe, photo 1" data-i18n-alt="popup.studio.alt1">
+                <img src="images/studio-corner-1.jpeg" loading="lazy" alt="The Studio Corner at StudioCafe, photo 2" data-i18n-alt="popup.studio.alt2">
+                <img src="images/studio-corner-2.jpeg" loading="lazy" alt="The Studio Corner at StudioCafe, photo 3" data-i18n-alt="popup.studio.alt3">
+                <img src="images/studio-corner-3.jpeg" loading="lazy" alt="The Studio Corner at StudioCafe, photo 4" data-i18n-alt="popup.studio.alt4">
+            </div>
+            <button type="button" class="slide-btn slide-prev" data-slide="-1">
+                <span aria-hidden="true">&lsaquo;</span>
+                <span class="sr-only" data-i18n="popup.prev">Previous photo</span>
+            </button>
+            <button type="button" class="slide-btn slide-next" data-slide="1">
+                <span aria-hidden="true">&rsaquo;</span>
+                <span class="sr-only" data-i18n="popup.next">Next photo</span>
+            </button>
+        </div>
+    </div>
+</dialog>
+
+<dialog class="popup" id="events-popup" aria-labelledby="events-popup-title">
+    <form method="dialog">
+        <button class="popup-close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only" data-i18n="popup.close">Close</span>
+        </button>
+    </form>
+    <div class="popup-inner">
+        <div class="popup-text">
+            <h2 id="events-popup-title" data-i18n="gallery.events">Live Music &amp; Events</h2>
+            <p data-i18n="popup.events.text">Every now and then, StudioCafe comes alive with live music and DJ sets. Announcements and bookings are handled through our official Instagram, so follow us to see what's coming up.</p>
+
+            <a href="https://instagram.com/studiocafe.skopje" class="btn popup-btn" target="_blank" rel="noopener" data-i18n="popup.events.btn">Follow us on Instagram</a>
+        </div>
+        <div class="slideshow">
+            <div class="slides">
+                <img src="images/party2.jpeg" loading="lazy" alt="Guests at an event at StudioCafe" data-i18n-alt="popup.events.alt1">
+                <img src="images/party1.jpeg" loading="lazy" alt="Poster for a live music night at StudioCafe" data-i18n-alt="popup.events.alt2">
+            </div>
+            <button type="button" class="slide-btn slide-prev" data-slide="-1">
+                <span aria-hidden="true">&lsaquo;</span>
+                <span class="sr-only" data-i18n="popup.prev">Previous photo</span>
+            </button>
+            <button type="button" class="slide-btn slide-next" data-slide="1">
+                <span aria-hidden="true">&rsaquo;</span>
+                <span class="sr-only" data-i18n="popup.next">Next photo</span>
+            </button>
+        </div>
+    </div>
+</dialog>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <p class="footer-name">StudioCafe</p>
+            <p data-i18n="hero.title">Where Coffee Meets Creativity</p>
+        </div>
+
+        <ul class="footer-links">
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="menu.html" data-i18n="nav.menu">Menu</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+
+        <div class="footer-visit">
+            <p data-i18n="footer.address">Salih Asim, Skopje 1000, North Macedonia</p>
+            <p data-i18n="footer.hours">Mon–Sun: 09:00 – 00:00</p>
+            <div class="socials">
+                <a href="https://instagram.com/studiocafe.skopje" target="_blank" rel="noopener">Instagram</a> •
+                <a href="https://www.tiktok.com/@studiocafe.skopje" target="_blank" rel="noopener">TikTok</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p data-i18n="footer.rights">© 2026 StudioCafe</p>
+        <a href="cookies.html" data-i18n="cookies.title">Cookie Policy</a>
+    </div>
+</footer>
+
+<script>
+    document.querySelectorAll('[data-popup]').forEach(card => {
+        card.addEventListener('click', event => {
+            event.preventDefault();
+            document.getElementById(card.dataset.popup).showModal();
+        });
+    });
+
+    document.querySelectorAll('[data-slide]').forEach(button => {
+        button.addEventListener('click', () => {
+            const slides = button.parentElement.querySelector('.slides');
+            slides.scrollBy({ left: button.dataset.slide * slides.clientWidth, behavior: 'smooth' });
+        });
+    });
+
+    document.querySelectorAll('dialog.popup').forEach(popup => {
+        popup.addEventListener('click', event => {
+            if (event.target === popup) popup.close();
+        });
+    });
+</script>
+<script src="i18n.js"></script>
+<script src="cookies.js"></script>
+</body>
+</html>

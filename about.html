@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title data-i18n="title.about">StudioCafe | About Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.jpg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.jpg" alt="StudioCafe Logo">
+            </a>
+            <a href="index.html"><h2>StudioCafe</h2></a>
+        </div>
+
+        <ul>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="menu.html" data-i18n="nav.menu">Menu</a></li>
+            <li><a href="about.html" class="active" data-i18n="nav.about">About Us</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+            <li class="lang-switch">
+                <button type="button" class="lang-btn" data-lang="en">EN</button>
+                <button type="button" class="lang-btn" data-lang="mk">МК</button>
+                <button type="button" class="lang-btn" data-lang="sq">SQ</button>
+                <button type="button" class="lang-btn" data-lang="tr">TR</button>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<section class="page-title">
+    <h1 data-i18n="nav.about">About Us</h1>
+</section>
+
+<section>
+    <div class="story story-portrait">
+        <img src="images/about-3.jpeg" alt="A coffee on a table outside StudioCafe" data-i18n-alt="about.img.alt">
+        <div class="story-text">
+            <h2 data-i18n="about.title">Our Story</h2>
+            <p data-i18n="about.story.text">StudioCafe began with a simple wish: to create a space where comfort meets creativity and self-expression. We wanted a place where you can slow down with a good cup of coffee, feel at home, and be yourself. Every detail, from the warm light to the cozy corners, is designed to help you feel relaxed and inspired.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+
+    <div class="story story-reverse">
+        <div class="story-text">
+            <h2 data-i18n="about.apart.title">What Sets Us Apart</h2>
+            <p data-i18n="about.apart.text">At StudioCafe, taking photos isn't awkward, it's welcomed. Snap your drink, strike a pose, or book our Studio Corner for a full photo session. Here, nobody will look twice because you took out your camera.</p>
+        </div>
+        <img src="images/about-2.jpeg" alt="A guest being photographed with a camera at StudioCafe" data-i18n-alt="about.apart.img.alt">
+    </div>
+</section>
+
+<section>
+    <h2 data-i18n="about.values.title">Our Values</h2>
+    <div class="values">
+        <div class="value-card">
+            <h3 data-i18n="about.value1.title">Comfort</h3>
+            <p data-i18n="about.value1.text">A warm, welcoming space where everyone can relax and feel at home.</p>
+        </div>
+        <div class="value-card">
+            <h3 data-i18n="about.value2.title">Creativity</h3>
+            <p data-i18n="about.value2.text">A place that inspires, for creators, dreamers and anyone with an idea.</p>
+        </div>
+        <div class="value-card">
+            <h3 data-i18n="about.value3.title">Self-expression</h3>
+            <p data-i18n="about.value3.text">Come as you are. Share your style, your moments and your story.</p>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <h2 data-i18n="about.cta.title">Come Visit Us</h2>
+    <p data-i18n="about.cta.text">Come and give us a visit. Grab a coffee, bring your camera, and make yourself at home.</p>
+    <a href="contact.html" class="btn" data-i18n="about.cta.btn">Contact &amp; directions</a>
+</section>
+
+<div id="cookie-banner" class="cookie-banner">
+    <p data-i18n-html="cookie.text">
+        This website uses cookies to improve your experience.
+        You can accept or decline optional <a href="cookies.html">cookies.</a>
+    </p>
+
+    <div class="cookie-buttons">
+        <button id="accept-cookies" data-i18n="cookie.accept">Accept</button>
+        <button id="decline-cookies" data-i18n="cookie.decline">Decline</button>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <p class="footer-name">StudioCafe</p>
+            <p data-i18n="hero.title">Where Coffee Meets Creativity</p>
+        </div>
+
+        <ul class="footer-links">
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="menu.html" data-i18n="nav.menu">Menu</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+
+        <div class="footer-visit">
+            <p data-i18n="footer.address">Salih Asim, Skopje 1000, North Macedonia</p>
+            <p data-i18n="footer.hours">Mon–Sun: 09:00 – 00:00</p>
+            <div class="socials">
+                <a href="https://instagram.com/studiocafe.skopje" target="_blank" rel="noopener">Instagram</a> •
+                <a href="https://www.tiktok.com/@studiocafe.skopje" target="_blank" rel="noopener">TikTok</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p data-i18n="footer.rights">© 2026 StudioCafe</p>
+        <a href="cookies.html" data-i18n="cookies.title">Cookie Policy</a>
+    </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="cookies.js"></script>
+</body>
+</html>

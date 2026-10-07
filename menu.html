@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title data-i18n="title.menu">StudioCafe | Menu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.jpg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.jpg" alt="StudioCafe Logo">
+            </a>
+            <a href="index.html"><h2>StudioCafe</h2></a>
+        </div>
+        <ul>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="menu.html" class="active" data-i18n="nav.menu">Menu</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+            <li class="lang-switch">
+                <button type="button" class="lang-btn" data-lang="en">EN</button>
+                <button type="button" class="lang-btn" data-lang="mk">МК</button>
+                <button type="button" class="lang-btn" data-lang="sq">SQ</button>
+                <button type="button" class="lang-btn" data-lang="tr">TR</button>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<section class="menu-page">
+    <h1 data-i18n="menu.title">Our Menu</h1>
+
+    <div class="menu-tabs" id="menu-tabs" role="tablist"></div>
+    <div id="menu-panels"></div>
+</section>
+
+<div id="cookie-banner" class="cookie-banner">
+    <p data-i18n-html="cookie.text">
+        This website uses cookies to improve your experience.
+        You can accept or decline optional <a href="cookies.html">cookies.</a>
+    </p>
+
+    <div class="cookie-buttons">
+        <button id="accept-cookies" data-i18n="cookie.accept">Accept</button>
+        <button id="decline-cookies" data-i18n="cookie.decline">Decline</button>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <p class="footer-name">StudioCafe</p>
+            <p data-i18n="hero.title">Where Coffee Meets Creativity</p>
+        </div>
+
+        <ul class="footer-links">
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="menu.html" data-i18n="nav.menu">Menu</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+
+        <div class="footer-visit">
+            <p data-i18n="footer.address">Salih Asim, Skopje 1000, North Macedonia</p>
+            <p data-i18n="footer.hours">Mon–Sun: 09:00 – 00:00</p>
+            <div class="socials">
+                <a href="https://instagram.com/studiocafe.skopje" target="_blank" rel="noopener">Instagram</a> •
+                <a href="https://www.tiktok.com/@studiocafe.skopje" target="_blank" rel="noopener">TikTok</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p data-i18n="footer.rights">© 2026 StudioCafe</p>
+        <a href="cookies.html" data-i18n="cookies.title">Cookie Policy</a>
+    </div>
+</footer>
+
+<script src="menu-data.js"></script>
+<script>
+    const tabsBox = document.getElementById('menu-tabs');
+    const panelsBox = document.getElementById('menu-panels');
+
+    MENU.forEach(category => {
+        tabsBox.insertAdjacentHTML('beforeend',
+            `<button type="button" class="menu-tab" role="tab" data-tab="${category.id}" data-i18n="${category.title}"></button>`);
+
+        const cards = category.items.map(item => {
+            if (item.heading) return `<h2 class="menu-subheading" data-i18n="${item.heading}"></h2>`;
+
+            if (item.note) return `<p class="menu-note"><bdi data-i18n="${item.note}"></bdi> +${item.price} ${MENU_CURRENCY}</p>`;
+
+            const name = item.name ? `<bdi data-i18n="${item.name}"></bdi>` : `<bdi>${item.text}</bdi>`;
+            const alt = item.name ? `alt="" data-i18n-alt="${item.name}"` : `alt="${item.text}"`;
+            const desc = item.desc ? `<p data-i18n="${item.desc}"></p>` : '';
+            const price = item.price ? `${item.price} ${MENU_CURRENCY}` : '—';
+            const label = item.label ? `<span class="menu-label" data-i18n="${item.label}"></span>` : '';
+            return `<article class="menu-card${item.poster ? ' menu-card-poster' : ''}">
+                        <img src="${item.photo}" ${alt} loading="lazy">
+                        <div class="menu-card-text">${label}<h3>${name}</h3>${desc}</div>
+                        <span class="menu-price">${price}</span>
+                    </article>`;
+        }).join('');
+
+        panelsBox.insertAdjacentHTML('beforeend',
+            `<div class="menu-panel" id="${category.id}" role="tabpanel" hidden>${cards}</div>`);
+    });
+
+</script>
+<script src="i18n.js"></script>
+<script>
+    function showTab(id) {
+        if (!MENU.some(category => category.id === id)) id = MENU[0].id;
+        document.querySelectorAll('.menu-panel').forEach(panel => panel.hidden = panel.id !== id);
+        document.querySelectorAll('.menu-tab').forEach(tab => {
+            tab.classList.toggle('active', tab.dataset.tab === id);
+            tab.setAttribute('aria-selected', tab.dataset.tab === id);
+            if (tab.dataset.tab === id) tabsBox.scrollLeft = tab.offsetLeft - (tabsBox.clientWidth - tab.offsetWidth) / 2;
+        });
+    }
+
+    tabsBox.addEventListener('click', event => {
+        const tab = event.target.closest('.menu-tab');
+        if (!tab) return;
+        history.pushState(null, '', '#' + tab.dataset.tab);
+        showTab(tab.dataset.tab);
+        const top = panelsBox.getBoundingClientRect().top + window.scrollY - tabsBox.offsetHeight - 90;
+        if (window.scrollY > top) window.scrollTo(0, top);
+    });
+
+    window.addEventListener('popstate', () => showTab(location.hash.slice(1)));
+    showTab(location.hash.slice(1));
+</script>
+<script src="cookies.js"></script>
+</body>
+</html>
