@@ -2,6 +2,10 @@ const translations = {
     en: {
         "title.home": "StudioCafe | Coffee Meets Creativity",
         "meta.home": "StudioCafe is a creative coffee shop featuring handcrafted drinks and a photo-ready studio corner.",
+        "meta.menu": "See the full StudioCafe menu: coffee, tea, soft drinks, ice cream and cocktails, with prices.",
+        "meta.about": "The story behind StudioCafe in Skopje: a warm café built around comfort, creativity and self-expression.",
+        "meta.contact": "Find StudioCafe in Skopje: address, opening hours, map, email and social media.",
+        "visit.map": "Map showing the location of StudioCafe",
         "title.menu": "StudioCafe | Menu",
         "title.cookies": "StudioCafe | Cookies",
 
@@ -152,6 +156,10 @@ const translations = {
     mk: {
         "title.home": "StudioCafe | Кафето се среќава со креативноста",
         "meta.home": "StudioCafe е креативно кафуле со рачно подготвени пијалаци и студио катче подготвено за фотографирање.",
+        "meta.menu": "Погледнете го целото мени на StudioCafe: кафе, чај, безалкохолни пијалаци, сладолед и коктели, со цени.",
+        "meta.about": "Приказната на StudioCafe во Скопје: топло кафуле создадено за удобност, креативност и самоизразување.",
+        "meta.contact": "Пронајдете го StudioCafe во Скопје: адреса, работно време, мапа, е-пошта и социјални мрежи.",
+        "visit.map": "Мапа со локацијата на StudioCafe",
         "title.menu": "StudioCafe | Мени",
         "title.cookies": "StudioCafe | Колачиња",
 
@@ -302,6 +310,10 @@ const translations = {
     sq: {
         "title.home": "StudioCafe | Kafeja takon krijimtarinë",
         "meta.home": "StudioCafe është një kafene kreative me pije të përgatitura me dorë dhe një cep studioje gati për fotografi.",
+        "meta.menu": "Shikoni menynë e plotë të StudioCafe: kafe, çaj, pije freskuese, akullore dhe kokteje, me çmime.",
+        "meta.about": "Historia e StudioCafe në Shkup: një kafene e ngrohtë e ndërtuar rreth rehatisë, kreativitetit dhe vetëshprehjes.",
+        "meta.contact": "Gjeni StudioCafe në Shkup: adresa, orari i punës, harta, email-i dhe rrjetet sociale.",
+        "visit.map": "Harta me vendndodhjen e StudioCafe",
         "title.menu": "StudioCafe | Menuja",
         "title.cookies": "StudioCafe | Cookies",
 
@@ -452,6 +464,10 @@ const translations = {
     tr: {
         "title.home": "StudioCafe | Kahvenin Yaratıcılıkla Buluştuğu Yer",
         "meta.home": "StudioCafe, özenle hazırlanan içecekleri ve fotoğraf çekimine hazır stüdyo köşesiyle yaratıcı bir kafedir.",
+        "meta.menu": "StudioCafe menüsünün tamamı: kahve, çay, meşrubat, dondurma ve kokteyller, fiyatlarıyla.",
+        "meta.about": "Üsküp'teki StudioCafe'nin hikâyesi: konfor, yaratıcılık ve kendini ifade etme üzerine kurulu sıcak bir kafe.",
+        "meta.contact": "StudioCafe'yi Üsküp'te bulun: adres, çalışma saatleri, harita, e-posta ve sosyal medya.",
+        "visit.map": "StudioCafe'nin konumunu gösteren harita",
         "title.menu": "StudioCafe | Menü",
         "title.cookies": "StudioCafe | Çerezler",
 
@@ -638,6 +654,11 @@ function setLanguage(lang) {
     document.querySelectorAll("[data-i18n-alt]").forEach(el => {
         const key = el.getAttribute("data-i18n-alt");
         if (dict[key] !== undefined) el.setAttribute("alt", dict[key]);
+    });
+
+    document.querySelectorAll("[data-i18n-title]").forEach(el => {
+        const key = el.getAttribute("data-i18n-title");
+        if (dict[key] !== undefined) el.setAttribute("title", dict[key]);
     });
 
     document.querySelectorAll("[data-i18n-content]").forEach(el => {

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title data-i18n="title.menu">StudioCafe | Menu</title>
+    <meta name="description" data-i18n-content="meta.menu" content="See the full StudioCafe menu: coffee, tea, soft drinks, ice cream and cocktails, with prices.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/logo.jpg">
     <link rel="stylesheet" href="css/style.css">
@@ -101,7 +102,7 @@
             const price = item.price ? `${item.price} ${MENU_CURRENCY}` : '—';
             const label = item.label ? `<span class="menu-label" data-i18n="${item.label}"></span>` : '';
             return `<article class="menu-card${item.poster ? ' menu-card-poster' : ''}">
-                        <img src="${item.photo}" ${alt} loading="lazy">
+                        <img src="${MENU_PHOTO_DIR}${item.photo}" ${alt} loading="lazy">
                         <div class="menu-card-text">${label}<h3>${name}</h3>${desc}</div>
                         <span class="menu-price">${price}</span>
                     </article>`;
@@ -112,7 +113,7 @@
     });
 
 </script>
-<script src="i18n.js"></script>
+<script src="languages.js"></script>
 <script>
     function showTab(id) {
         if (!MENU.some(category => category.id === id)) id = MENU[0].id;
