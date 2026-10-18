@@ -6,7 +6,7 @@
     <meta name="description" data-i18n-content="meta.menu" content="See the full StudioCafe menu: coffee, tea, soft drinks, ice cream and cocktails, with prices.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/logo.jpg">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
 
@@ -82,7 +82,7 @@
     </div>
 </footer>
 
-<script src="menu-data.js"></script>
+<script src="menu-data.js?v=2"></script>
 <script>
     const tabsBox = document.getElementById('menu-tabs');
     const panelsBox = document.getElementById('menu-panels');
@@ -113,7 +113,7 @@
     });
 
 </script>
-<script src="languages.js"></script>
+<script src="languages.js?v=2"></script>
 <script>
     function showTab(id) {
         if (!MENU.some(category => category.id === id)) id = MENU[0].id;
@@ -137,6 +137,6 @@
     window.addEventListener('popstate', () => showTab(location.hash.slice(1)));
     showTab(location.hash.slice(1));
 </script>
-<script src="cookies.js"></script>
+<script src="cookies.js?v=2"></script>
 </body>
 </html>
