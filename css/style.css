@@ -642,6 +642,136 @@ section[id] {
     }
 }
 
+.news {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.news-card {
+    background: var(--cream);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.news-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.news-body {
+    padding: 1.25rem 1.25rem 1.5rem;
+}
+
+.news-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--olive);
+}
+
+.news-card h3 {
+    margin: 0.35rem 0 0.5rem;
+}
+
+.news-more {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.news-more a {
+    color: var(--olive);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .news {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-intro {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 2rem;
+}
+
+.contact-form {
+    max-width: 560px;
+    margin: 0 auto;
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+.form-row {
+    margin-bottom: 1.25rem;
+}
+
+.form-row label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid rgba(62, 44, 36, 0.25);
+    border-radius: 10px;
+    background: white;
+    color: var(--brown);
+    font: inherit;
+}
+
+.form-row textarea {
+    resize: vertical;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+    outline: 2px solid var(--olive);
+    border-color: var(--olive);
+}
+
+.form-row [aria-invalid="true"] {
+    border-color: #a33a2b;
+}
+
+.form-error {
+    min-height: 1.2em;
+    margin: 0.3rem 0 0;
+    font-size: 0.85rem;
+    color: #a33a2b;
+}
+
+.contact-form .btn {
+    margin-top: 0.5rem;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+}
+
+.form-success {
+    margin: 1rem 0 0;
+    color: var(--olive);
+    font-weight: 600;
+}
+
+@media (max-width: 480px) {
+    .contact-form {
+        padding: 1.5rem 1.25rem;
+    }
+}
+
 .cta {
     text-align: center;
 }

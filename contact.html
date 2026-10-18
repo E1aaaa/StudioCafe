@@ -52,6 +52,40 @@
     </div>
 </section>
 
+<section id="message">
+    <h2 data-i18n="form.title">Send Us a Message</h2>
+    <p class="form-intro" data-i18n="form.intro">Questions, collaborations or a private event? Write to us and we will get back to you.</p>
+
+    <form id="contact-form" class="contact-form" novalidate>
+        <div class="form-row">
+            <label for="cf-name" data-i18n="form.name">Name</label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" required>
+            <p class="form-error" id="cf-name-error"></p>
+        </div>
+        <div class="form-row">
+            <label for="cf-email" data-i18n="form.email">Email</label>
+            <input type="email" id="cf-email" name="email" autocomplete="email" required>
+            <p class="form-error" id="cf-email-error"></p>
+        </div>
+        <div class="form-row">
+            <label for="cf-subject" data-i18n="form.subject">Subject</label>
+            <select id="cf-subject" name="subject">
+                <option value="question" data-i18n="form.subject.question">General question</option>
+                <option value="collaboration" data-i18n="form.subject.collab">Collaboration</option>
+                <option value="event" data-i18n="form.subject.event">Private event</option>
+                <option value="feedback" data-i18n="form.subject.feedback">Feedback</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <label for="cf-message" data-i18n="form.message">Message</label>
+            <textarea id="cf-message" name="message" rows="5" required></textarea>
+            <p class="form-error" id="cf-message-error"></p>
+        </div>
+        <button type="submit" class="btn" data-i18n="form.send">Send message</button>
+        <p class="form-success" id="cf-success" role="status"></p>
+    </form>
+</section>
+
 <section id="visit">
     <h2 data-i18n="visit.title">Visit Us</h2>
     <p style="text-align:center" data-i18n-html="visit.info">
@@ -106,5 +140,49 @@
 
 <script src="languages.js"></script>
 <script src="cookies.js"></script>
+<script>
+    const form = document.getElementById("contact-form");
+    const success = document.getElementById("cf-success");
+
+    // Messages keep their data-i18n key, so they follow the language switcher
+    function showMessage(el, key) {
+        if (key) {
+            el.setAttribute("data-i18n", key);
+            el.textContent = translations[document.documentElement.lang][key];
+        } else {
+            el.removeAttribute("data-i18n");
+            el.textContent = "";
+        }
+    }
+
+    function checkField(input) {
+        const value = input.value.trim();
+        let key = null;
+        if (!value) key = "form.error.required";
+        else if (input.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) key = "form.error.email";
+        else if (input.name === "message" && value.length < 10) key = "form.error.short";
+        showMessage(document.getElementById(input.id + "-error"), key);
+        input.setAttribute("aria-invalid", key ? "true" : "false");
+        return !key;
+    }
+
+    const fields = [...form.querySelectorAll("[required]")];
+    fields.forEach(input => input.addEventListener("input", () => {
+        if (input.getAttribute("aria-invalid") === "true") checkField(input);
+    }));
+
+    form.addEventListener("submit", event => {
+        event.preventDefault();
+        const valid = fields.map(checkField).every(Boolean);
+        if (!valid) {
+            showMessage(success, null);
+            form.querySelector("[aria-invalid='true']").focus();
+            return;
+        }
+        form.reset();
+        fields.forEach(input => input.removeAttribute("aria-invalid"));
+        showMessage(success, "form.success");
+    });
+</script>
 </body>
 </html>
