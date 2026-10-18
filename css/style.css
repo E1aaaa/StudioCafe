@@ -591,6 +591,57 @@ section[id] {
     color: var(--olive);
 }
 
+.team {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.team-card {
+    background: var(--cream);
+    border-radius: 16px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.team-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.team-card h3 {
+    margin: 1.25rem 1rem 0.5rem;
+    color: var(--olive);
+}
+
+.team-card p {
+    margin: 0 1.25rem 1.5rem;
+}
+
+.team-join {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.team-join a {
+    color: var(--olive);
+    font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+    .team {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .team {
+        grid-template-columns: 1fr;
+    }
+}
+
 .cta {
     text-align: center;
 }
